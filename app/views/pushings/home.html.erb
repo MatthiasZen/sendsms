@@ -1,11 +1,10 @@
 <div class="container">
   <div class="text-center">
-    <h1>SMS - Recouvrement</h1>
-
+    <h1 class="fs-presentation">SMS - Recouvrement</h1>
+    <p id="notice"><%= notice %></p>
     <form action="/send" method="get" id="msform">
     <fieldset>
-      <h2 class="fs-title">Create your account</h2>
-      <h3 class="fs-subtitle">This is step 1</h3>
+      <h2 class="fs-title">Envoyez un texto</h2>
       <input type="text" name="name" placeholder="Nom" required="required">
       <input type="text" name="family" placeholder="Prénom" required="required">
       <input type="text" name="phone" placeholder="N° portable" required="required">
@@ -20,15 +19,13 @@
     </fieldset>
     </form>
 
-    <h1>Liste des SMS à envoyer</h1>
+    <h1 class="fs-presentation">Liste des SMS à envoyer</h1>
   </div>
+  <div class="fs-subtitle sms-padding">
     <p>1) Bonjour, j'ai tenté de vous joindre concernant votre facturation. Pourriez-vous me recontacter au 0176440040? Je vous remercie d'avance. Matthias Vitte</p>
     <p>2) Bonjour, certaines de vos factures n'ont pas été réglées. Afin d'eviter la suspension de vos services, merci de me contacter au 0176440040. Matthias Vitte</p>
     <p>3) Bonjour, afin d'eviter la suspension de vos services et une majoration de 30%, merci de régler vos factures dans les 8 jours. Matthias Vitte 0176440040</p>
     <p>4) Bonjour, vos factures demeurent impayées. Ces dernières seront donc recouvrées avec une majoration de 30%, votre service est désormais suspendu. Matthias Vitte</p>
-
-    <p>test</p>
-    <p><%=@result%></p>
-
+  </div>
 </div>
 

@@ -45,6 +45,7 @@ class PushingsController < ApplicationController
       @result = "#{params['name']} #{params['family']} a bien reçu le sms de l'étape #{step_of_reconvering}"
     end
 
+    flash[:notice] = 'SMS envoyé !'
     redirect_to :root
 
   end
