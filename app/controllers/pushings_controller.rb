@@ -10,6 +10,8 @@ class PushingsController < ApplicationController
     require 'callr'
     api = CALLR::Api.new('zenchef', '59Ng8POwYE')
     phone = params["phone"].gsub(/[" "]/, '')
+    first_name = params["name"]
+    last_name = params["family"]
 
     if phone.length.between? 10, 12
       add_region = phone.first.gsub(/["0"]/, '+33') + phone[1..11]
@@ -47,10 +49,10 @@ class PushingsController < ApplicationController
         @result = "#{params['name']} #{params['family']} a bien reçu le sms de l'étape #{step_of_reconvering}"
       end
 
-      flash[:notice] = 'SMS envoyé !'
+      flash[:success] = "SMS envoyé à #{last_name} #{first_name}!"
       redirect_to :root
     else
-      flash[:notice] = 'Le numéro est faux! il contient soit trop, soit pas assez de caractères !'
+      flash[:error] = 'Le numéro est faux! il contient trop ou pas assez de caractères!'
       redirect_to :root
     end
   end
