@@ -8,7 +8,7 @@ class PushingsController < ApplicationController
 
   def send_sms
     require 'callr'
-    api = CALLR::Api.new('zenchef', '59Ng8POwYE')
+    api = CALLR::Api.new(ENV['login_api'], ENV['password_api'])
     phone = params["phone"].gsub(/[" "]/, '')
     first_name = params["name"]
     last_name = params["family"]
