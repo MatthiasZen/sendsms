@@ -5,8 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-# Install Nokogiri
-gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
+# Use Puma as the app server
+gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,10 +29,18 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'better_errors', '~> 2.1', '>= 2.1.1'
+gem 'nokogiri', '~> 1.6', '>= 1.6.6.2' # if a problem occurs when intalling nokogiri with this error 'An error occurred while installing nokogiri (1.7.0), and Bundler cannot continue.
+#Make sure that `gem install nokogiri -v '1.7.0'` succeeds before bundling.' you have to: gem install nokogiri -v '1.7.0' or the vesion lentionned in the error + bundle install and it'll rock :)
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem "binding_of_caller"
+  gem 'callr', '~> 1.0'
+  gem 'bootstrap', '~> 4.0.0.alpha6'
+  gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+  gem 'figaro', '~> 1.1', '>= 1.1.1'
 end
 
 group :development do
@@ -42,6 +50,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
